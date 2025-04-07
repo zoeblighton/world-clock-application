@@ -37,3 +37,6 @@ function updateTime(city) {
 }
 
 updateTime("Europe/London");
+updateTime("Europe/Paris");
+updateTime("Australia/Sydney");
+updateTime("America/New_York");
