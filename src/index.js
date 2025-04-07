@@ -2,15 +2,20 @@ document.getElementById("city").addEventListener("change", function () {
   const city = this.value;
 
   document.querySelectorAll(".city").forEach((cityDiv) => {
-    cityDiv.style.display = "none";
+    cityDiv.style.display = "block";
   });
 
   if (city) {
+    document.querySelectorAll(".city").forEach((cityDiv) => {
+      const cityId = cityDiv.id;
+      if (cityId !== city.split("/")[1].toLowerCase()) {
+        cityDiv.style.display = "none";
+      }
+    });
+
     const cityElement = document.getElementById(
       city.split("/")[1].toLowerCase()
     );
-    cityElement.style.display = "block";
-
     const currentTime = moment.tz(city);
     cityElement.querySelector(".date").textContent =
       currentTime.format("MMMM Do YYYY");
@@ -20,6 +25,8 @@ document.getElementById("city").addEventListener("change", function () {
     setInterval(() => {
       updateTime(city);
     }, 1000);
+  } else {
+    updateAllTimes();
   }
 });
 
@@ -36,7 +43,11 @@ function updateTime(city) {
   }
 }
 
-updateTime("Europe/London");
-updateTime("Europe/Paris");
-updateTime("Australia/Sydney");
-updateTime("America/New_York");
+function updateAllTimes() {
+  updateTime("Europe/London");
+  updateTime("Europe/Paris");
+  updateTime("Australia/Sydney");
+  updateTime("America/New_York");
+}
+
+updateAllTimes();
