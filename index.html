@@ -11,32 +11,22 @@
   <body>
     <div class="container">
       <h1>World Clock</h1>
+
       <label for="city">Select a city to display time:</label>
       <select id="city">
         <option value="">Select a city..</option>
         <option value="Europe/Madrid">Madrid</option>
         <option value="Australia/Sydney">Sydney</option>
         <option value="America/Toronto">Ottawa</option>
-        <option value="current">My Current Location</option>
       </select>
 
-      <div id="cities">
-        <div class="city" id="paris">
-          <div>
-            <h2>Paris</h2>
-            <div class="date"></div>
-          </div>
-          <div class="time"></div>
-        </div>
-
-        <div class="city" id="sydney">
-          <div>
-            <h2>Sydney</h2>
-            <div class="date"></div>
-          </div>
-          <div class="time"></div>
-        </div>
+      <div id="london">
+        <h2>London</h2>
+        <div class="date"></div>
+        <div class="time"></div>
       </div>
+
+      <div id="cities"></div>
     </div>
 
     <footer>
