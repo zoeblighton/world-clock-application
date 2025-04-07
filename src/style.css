@@ -104,3 +104,20 @@ select:focus {
 body {
   font-family: "Roboto", sans-serif;
 }
+footer {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #777;
+}
+footer a {
+  color: #007bff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+footer a:hover {
+  color: #0056b3;
+}
+footer a:visited {
+  color: #0056b3;
+}
