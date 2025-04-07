@@ -1,52 +1,61 @@
-function updateTime() {
-  const londonElement = document.querySelector("#london");
-  if (londonElement) {
-    const londonDateElement = londonElement.querySelector(".date");
-    const londonTimeElement = londonElement.querySelector(".time");
-    const londonTime = moment().tz("Europe/London");
+document.addEventListener("DOMContentLoaded", function () {
+  const citySelect = document.getElementById("city");
+  const cities = document.querySelectorAll(".city");
 
-    londonDateElement.innerHTML = londonTime.format("MMMM Do YYYY");
-    londonTimeElement.innerHTML = londonTime.format(
-      "h:mm:ss [<small>]A[</small>]"
-    );
-  }
+  function updateTime() {
+    let londonElement = document.querySelector("#london");
+    if (londonElement) {
+      let londonDateElement = londonElement.querySelector(".date");
+      let londonTimeElement = londonElement.querySelector(".time");
+      let londonTime = moment().tz("Europe/London");
 
-  const citiesElement = document.querySelector("#cities");
-  if (citiesElement) {
-    citiesElement.innerHTML = "";
+      londonDateElement.innerHTML = londonTime.format("MMMM Do YYYY");
+      londonTimeElement.innerHTML = londonTime.format(
+        "h:mm:ss [<small>]A[</small>]"
+      );
+    }
 
-    const citySelectElement = document.querySelector("#city");
-    const cityTimeZone = citySelectElement ? citySelectElement.value : "";
+    let parisElement = document.querySelector("#paris");
+    if (parisElement) {
+      let parisDateElement = parisElement.querySelector(".date");
+      let parisTimeElement = parisElement.querySelector(".time");
+      let parisTime = moment().tz("Europe/Paris");
 
-    if (cityTimeZone && cityTimeZone !== "current") {
-      let cityName = cityTimeZone.replace("_", " ").split("/")[1];
-      const cityTime = moment().tz(cityTimeZone);
+      parisDateElement.innerHTML = parisTime.format("MMMM Do YYYY");
+      parisTimeElement.innerHTML = parisTime.format(
+        "h:mm:ss [<small>]A[</small>]"
+      );
+    }
 
-      citiesElement.innerHTML = `
-        <div class="city">
-          <h2>${cityName}</h2>
-          <div class="date">${cityTime.format("MMMM Do YYYY")}</div>
-          <div class="time">${cityTime.format(
-            "h:mm:ss"
-          )} <small>${cityTime.format("A")}</small></div>
-        </div>
-      `;
+    let sydneyElement = document.querySelector("#sydney");
+    if (sydneyElement) {
+      let sydneyDateElement = sydneyElement.querySelector(".date");
+      let sydneyTimeElement = sydneyElement.querySelector(".time");
+      let sydneyTime = moment().tz("Australia/Sydney");
+
+      sydneyDateElement.innerHTML = sydneyTime.format("MMMM Do YYYY");
+      sydneyTimeElement.innerHTML = sydneyTime.format(
+        "h:mm:ss [<small>]A[</small>]"
+      );
+    }
+
+    let newYorkElement = document.querySelector("#new_york");
+    if (newYorkElement) {
+      let newYorkDateElement = newYorkElement.querySelector(".date");
+      let newYorkTimeElement = newYorkElement.querySelector(".time");
+      let newYorkTime = moment().tz("America/New_York");
+
+      newYorkDateElement.innerHTML = newYorkTime.format("MMMM Do YYYY");
+      newYorkTimeElement.innerHTML = newYorkTime.format(
+        "h:mm:ss [<small>]A[</small>]"
+      );
     }
   }
-}
 
-function updateCity(event) {
-  updateTime();
-}
+  citySelect.addEventListener("change", function () {
+    updateTime();
+  });
 
-document.addEventListener("DOMContentLoaded", () => {
   updateTime();
   setInterval(updateTime, 1000);
-
-  const citiesSelectElement = document.querySelector("#city");
-  if (citiesSelectElement) {
-    citiesSelectElement.addEventListener("change", updateCity);
-  } else {
-    console.warn("Select element with ID #city not found.");
-  }
 });

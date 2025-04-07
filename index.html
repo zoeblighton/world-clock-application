@@ -12,30 +12,43 @@
     <div class="container">
       <h1>World Clock</h1>
 
-      <label for="city">Select a city to display time:</label>
       <select id="city">
         <option value="">Select a city..</option>
-        <option value="Europe/Madrid">Madrid</option>
+        <option value="Europe/London">London</option>
+        <option value="Europe/Paris">Paris</option>
         <option value="Australia/Sydney">Sydney</option>
-        <option value="America/Toronto">Ottawa</option>
+        <option value="America/New_York">New York</option>
       </select>
 
-      <div id="london">
-        <h2>London</h2>
-        <div class="date"></div>
-        <div class="time"></div>
+      <div class="cities-wrapper">
+        <div class="city" id="london">
+          <h2>London</h2>
+          <span class="date"></span>
+          <span class="time"></span>
+        </div>
+        <div class="city" id="paris">
+          <h2>Paris</h2>
+          <div class="date"></div>
+          <div class="time"></div>
+        </div>
+        <div class="city" id="sydney">
+          <h2>Sydney</h2>
+          <div class="date"></div>
+          <div class="time"></div>
+        </div>
+        <div class="city" id="new_york">
+          <h2>New York</h2>
+          <div class="date"></div>
+          <div class="time"></div>
+        </div>
       </div>
-
-      <div id="cities"></div>
     </div>
 
     <footer>
       <p>
         Created and coded by Zoe Blighton, hosted on
-        <a href="https://glowing-smakager-93c09f.netlify.app" target="_blank"
-          >Netlify</a
-        >
-        and open-sourced on
+        <a href="https://glowing-smakager-93c09f.netlify.app">Netlify</a>
+        and is open-sourced on
         <a
           href="https://github.com/zoeblighton/world-clock-application"
           target="_blank"
