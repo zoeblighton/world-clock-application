@@ -49,8 +49,14 @@ function updateCity(event) {
   `;
 }
 
-updateTime();
-setInterval(updateTime, 1000);
+document.addEventListener("DOMContentLoaded", () => {
+  updateTime();
+  setInterval(updateTime, 1000);
 
-let citiesSelectElement = document.querySelector("#city");
-citiesSelectElement.addEventListener("change", updateCity);
+  const citiesSelectElement = document.querySelector("#city");
+  if (citiesSelectElement) {
+    citiesSelectElement.addEventListener("change", updateCity);
+  } else {
+    console.warn("Select element with ID #city not found.");
+  }
+});
